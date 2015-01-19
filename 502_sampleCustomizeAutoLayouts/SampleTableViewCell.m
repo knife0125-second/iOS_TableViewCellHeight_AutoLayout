@@ -20,4 +20,10 @@
     // Configure the view for the selected state
 }
 
+- (void)setDataToCell:(NSDictionary *)dataDic {
+    NSString *labelText = dataDic[@"text"];
+
+    [self.sampleLabel setText:labelText];
+}
+
 @end

@@ -7,8 +7,11 @@
 //
 
 #import "SampleTableViewController.h"
+#import "SampleTableViewCell.h"
 
 @interface SampleTableViewController ()
+
+@property (nonatomic, strong) NSArray *dataAry;
 
 @end
 
@@ -17,11 +20,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    // 表示する用のサンプルデータを作成
+    self.dataAry = @[
+                     @{@"text": @"hogehogehogehogehogehogehoge"},
+                     @{@"text": @"fugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafugafuga"}
+                    ];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,26 +35,25 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    // Cellの範囲を自動計算するように設定
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return 2;
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+    SampleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+
+    // データをセルにセット
+    [cell setDataToCell:self.dataAry[indexPath.row]];
+
     return cell;
 }
-*/
 
 /*
 // Override to support conditional editing of the table view.

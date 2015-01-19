@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ytp-0q-mrn">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Root View Controller-->
@@ -12,11 +13,50 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="O3A-b0-FqY" customClass="SampleTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="100" id="O3A-b0-FqY" customClass="SampleTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="O3A-b0-FqY" id="0Ud-qV-F7T">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ほげほげ" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hFG-2a-9nK">
+                                            <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="hFG-2a-9nK" firstAttribute="top" secondItem="0Ud-qV-F7T" secondAttribute="topMargin" constant="31" id="Ip6-kc-vFK"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="hFG-2a-9nK" secondAttribute="bottom" constant="31.5" id="Ulc-9J-Xyg"/>
+                                        <constraint firstAttribute="centerX" secondItem="hFG-2a-9nK" secondAttribute="centerX" id="qYj-Oh-S2Y"/>
+                                        <constraint firstItem="hFG-2a-9nK" firstAttribute="leading" secondItem="0Ud-qV-F7T" secondAttribute="leadingMargin" id="wLs-UL-NkL"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="subviews">
+                                            <exclude reference="hFG-2a-9nK"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <exclude reference="Ip6-kc-vFK"/>
+                                            <exclude reference="Ulc-9J-Xyg"/>
+                                            <exclude reference="qYj-Oh-S2Y"/>
+                                            <exclude reference="wLs-UL-NkL"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="widthClass=compact">
+                                        <mask key="subviews">
+                                            <include reference="hFG-2a-9nK"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <include reference="Ip6-kc-vFK"/>
+                                            <include reference="Ulc-9J-Xyg"/>
+                                            <include reference="qYj-Oh-S2Y"/>
+                                            <include reference="wLs-UL-NkL"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="sampleLabel" destination="hFG-2a-9nK" id="Eyw-cQ-Tr2"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

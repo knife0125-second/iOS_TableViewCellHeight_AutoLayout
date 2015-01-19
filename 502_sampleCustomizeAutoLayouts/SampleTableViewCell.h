@@ -10,4 +10,8 @@
 
 @interface SampleTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *sampleLabel;
+
+- (void)setDataToCell:(NSDictionary *)dataDic;
+
 @end
